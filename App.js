@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
 
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
