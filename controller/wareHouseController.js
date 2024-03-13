@@ -29,8 +29,51 @@ const selectedId = async (req, res) => {
   }
 };
 
+const updateWarehouse = async (req, res) => {
+  try {
+    const wareHouse = await knex.select("*").where({ id: req.params.id }).update(req.body);
+    console.log("update to ", wareHouse);
+    res.status(200).json(wareHouse);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const createWarehouse = async (req, res) => {
+  try {
+    const wareHouse = await knex('warehouses').insert(req.body);
+    res.status(201).json(wareHouse);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteWarehouse = async (req, res) => {
+  try {
+    await knex('warehouses').where({ id: req.params.id }).del();
+    res.status(200).json({
+      success: true,
+      data: {
+        message: `Warehouse with ID ${req.params.id} successfully deleted.`
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: {
+        message: error.message,
+        code: 'INTERNAL_SERVER_ERROR'
+      }
+    });
+  }
+}
+
+
 module.exports = {
     index: index,
     selectedId : selectedId,
+    updateWarehouse: updateWarehouse,
+    createWarehouse: createWarehouse,
+    deleteWarehouse: deleteWarehouse,
 
 }

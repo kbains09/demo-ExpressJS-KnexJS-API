@@ -9,13 +9,11 @@ const port = process.env.PORT || 8080;
 const cors = require('cors');
 const router = require('./Routers/router-1');
 const wareHouseController = require('./controller/wareHouseController');
-
+const routers = require("./Routers/router-1");
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-const routers = require("./Routers/router-1");
-
 app.use('/routes',routers);
 
 app.get('/', (req, res) => {
