@@ -5,8 +5,8 @@ require('dotenv').config(); // Load env variables from .env file
 
 
 module.exports = {
-  development: {
-    client: 'mysql',
+  // development: {
+    client: 'mysql2',
     connection: {
       host: process.env.DB_HOST,
       database: process.env.DB_DBNAME,
@@ -15,5 +15,5 @@ module.exports = {
       charset: 'utf8',
     },
 
-  }
+  // }
 };
