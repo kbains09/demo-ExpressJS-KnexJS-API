@@ -32,7 +32,31 @@ const selectedId = async (req, res) => {
   }
 };
 
-//delete inventory by selected Id
+//update inventory item
+const updateInventory = async (req, res) => {
+  try {
+    const inventory = await knex
+      .select("*")
+      .where({ id: req.params.id })
+      .update(req.body);
+    console.log("update to ", inventory);
+    res.status(200).json(inventory);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//create inventory item
+const createInventory = async (req, res) => {
+  try {
+    const inventory = await knex("inventories").insert(req.body);
+    res.status(201).json(inventory);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//delete inventory item by selected Id
 
 const deleteInventory = async (req, res) => {
   try {
@@ -57,4 +81,7 @@ const deleteInventory = async (req, res) => {
 module.exports = {
   index: index,
   selectedId: selectedId,
+  updateInventory: updateInventory,
+  createInventory: createInventory,
+  deleteInventory: deleteInventory,
 };
