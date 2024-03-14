@@ -17,14 +17,14 @@ const selectedId = async (req, res) => {
          console.log(wareHouseID)
       if (wareHouseID.length === 0) {
         return res.status(404).json({
-          message: `User with ID ${req.params.id} not found` 
+          message: `User with ID ${req.params.id} not found: ${err}` 
         });
     }
     const wareHouseData = wareHouseID[0];
     res.json(wareHouseData);
   } catch (error) {
     res.status(500).json({
-      message: `Unable to retrieve user data for user with ID ${req.params.id}`,
+      message: `Unable to retrieve user data for user with ID ${req.params.id}: ${err}`,
     });
   }
 };

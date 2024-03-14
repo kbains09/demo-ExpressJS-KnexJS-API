@@ -20,14 +20,14 @@ const selectedId = async (req, res) => {
     console.log(inventoryId);
     if (inventoryId.length === 0) {
       return res.status(404).json({
-        message: `Inventory with ID ${req.params.id} not found`,
+        message: `Inventory with ID ${req.params.id} not found: ${error.message}`,
       });
     }
     const inventoryData = inventoryId[0];
     res.json(inventoryData);
   } catch (err) {
     res.status(500).json({
-      message: `Unable to retrieve inventory data for inventory with ID ${req.params.id}`,
+      message: `Unable to retrieve inventory data for inventory with ID ${req.params.id}: ${error.message}`,
     });
   }
 };
@@ -78,10 +78,33 @@ const deleteInventory = async (req, res) => {
   }
 };
 
+// get inventory by warehouse id
+const inventoryByWarehouse = async (req, res) => {
+  const warehouseId = req.params.warehouseId;
+  try {
+    const inventoryItems = await knex('inventories')
+      .where({ warehouse_id: warehouseId }); 
+
+    if (inventoryItems.length === 0) {
+      return res.status(404).json({
+        message: `No inventory found for warehouse with ID ${warehouseId}: ${error.message}`,
+      });
+    }
+
+    res.status(200).json(inventoryItems);
+  } catch (error) {
+    res.status(500).json({
+      message: `Unable to retrieve inventory for warehouse with ID ${warehouseId}: ${error.message}`,
+    });
+  }
+};
+
+
 module.exports = {
   index: index,
   selectedId: selectedId,
   updateInventory: updateInventory,
   createInventory: createInventory,
   deleteInventory: deleteInventory,
+  inventoryByWarehouse: inventoryByWarehouse,
 };

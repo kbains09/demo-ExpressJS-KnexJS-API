@@ -15,8 +15,8 @@ const routers2 = require("./Routers/router-2");
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use("/routes", routers);
-app.use("/routes2", routers2);
+app.use("/warehouse", routers);
+app.use("/inventory", routers2);
 
 app.get("/", (req, res) => {
   res.send("Hello World");

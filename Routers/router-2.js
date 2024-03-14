@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const invenController = require("../controller/invenController");
 
-router.route("/inventory").get(invenController.index);
-router.route("/inventory/:id").get(invenController.selectedId);
-router.route("/inventory").post(invenController.createInventory);
-router.route("/inventory/:id").put(invenController.updateInventory);
-router.route("/inventory/:id").delete(invenController.deleteInventory);
+router.route("/").get(invenController.index);
+router.route("/:id").get(invenController.selectedId);
+router.route("/").post(invenController.createInventory);
+router.route("/:id").put(invenController.updateInventory);
+router.route("/:id").delete(invenController.deleteInventory);
+router.route("/warehouse_id").get(invenController.inventoryByWarehouse);
 
 module.exports = router;
