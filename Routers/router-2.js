@@ -7,6 +7,8 @@ router.route("/:id").get(invenController.selectedId);
 router.route("/").post(invenController.createInventory);
 router.route("/:id").put(invenController.updateInventory);
 router.route("/:id").delete(invenController.deleteInventory);
-router.route("/warehouse_id").get(invenController.inventoryByWarehouse);
+router
+  .route("/warehouseItems/:warehouseId")
+  .get(invenController.inventoryByWarehouse);
 
 module.exports = router;
