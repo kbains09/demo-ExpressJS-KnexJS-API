@@ -22,25 +22,25 @@ The backend project follows a structured layout for better organization and main
 
 backend/
 ├── controllers/
-│   └── inventoryController.js    # feat: inventory by wh_id (last month)
-├── models/             # Database models and schema
-│   ├── warehouseModel.js   # feat: connecting/seeding db (last month)
-│   └── productModel.js      # feat: connecting/seeding db (last month)
+│   └── inventoryController.js # feat: inventory by wh_id (last month)
+├── models/
+│   ├── warehouseModel.js # feat: connecting/seeding db (last month)
+│   └── productModel.js # feat: connecting/seeding db (last month)
 ├── routes/
-│   └── inventoryRoutes.js   # update inventoryByWarehouse url endpoint (last month)
-├── db/                 # Database configuration and migrations
-│   ├── config.js       # Database connection configuration
-│   ├── migrations/     # Database migration files
-│   │   └── 2022-03-01_inventory_by_wh_id.js   # feat: connecting/seeding db (last month)
-│   └── seeds/          # Seed data for database
-│       └── warehouse_seed.js   # feat: connecting/seeding db (last month)
-├── seed-data/          # Seed data files
-│   └── product_seed.json   # feat: connecting/seeding db (last month)
-├── .gitignore          # feat: setting up Knex (last month)
-├── App.js              # feat: inventory by wh_id (last month)
-├── README.md           # Update README.md (1 minute ago)
-├── knexfile.js         # done with get all warehouses and single warehouse (last month)
-├── package-lock.json   # feat: setting up Knex (last month)
+│   └── inventoryRoutes.js # update inventoryByWarehouse url endpoint (last month)
+├── db/
+│   ├── config.js # Database connection configuration
+│   ├── migrations/
+│   │   └── 2022-03-01_inventory_by_wh_id.js # feat: connecting/seeding db (last month)
+│   └── seeds/
+│       └── warehouse_seed.js # feat: connecting/seeding db (last month)
+├── seed-data/
+│   └── product_seed.json # feat: connecting/seeding db (last month)
+├── .gitignore # feat: setting up Knex (last month)
+├── App.js # feat: inventory by wh_id (last month)
+├── README.md # Update README.md (1 minute ago)
+├── knexfile.js # done with get all warehouses and single warehouse (last month)
+├── package-lock.json # feat: setting up Knex (last month)
 └── package.json
 
 API Endpoints
