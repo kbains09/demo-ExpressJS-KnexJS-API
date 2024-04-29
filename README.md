@@ -20,18 +20,29 @@ Folder Structure
 
 The backend project follows a structured layout for better organization and maintainability:
 
-bash
-Copy code
 backend/
-├── controllers/        # Route handlers for each endpoint
+├── controllers/
+│   └── inventoryController.js    # feat: inventory by wh_id (last month)
 ├── models/             # Database models and schema
-├── routes/             # Route definitions
+│   ├── warehouseModel.js   # feat: connecting/seeding db (last month)
+│   └── productModel.js      # feat: connecting/seeding db (last month)
+├── routes/
+│   └── inventoryRoutes.js   # update inventoryByWarehouse url endpoint (last month)
 ├── db/                 # Database configuration and migrations
-├── config/             # Application configuration
-├── middleware/         # Custom middleware functions
-├── utils/              # Utility functions
-├── server.js           # Main entry point for the application
-└── package.json        # Project metadata and dependencies
+│   ├── config.js       # Database connection configuration
+│   ├── migrations/     # Database migration files
+│   │   └── 2022-03-01_inventory_by_wh_id.js   # feat: connecting/seeding db (last month)
+│   └── seeds/          # Seed data for database
+│       └── warehouse_seed.js   # feat: connecting/seeding db (last month)
+├── seed-data/          # Seed data files
+│   └── product_seed.json   # feat: connecting/seeding db (last month)
+├── .gitignore          # feat: setting up Knex (last month)
+├── App.js              # feat: inventory by wh_id (last month)
+├── README.md           # Update README.md (1 minute ago)
+├── knexfile.js         # done with get all warehouses and single warehouse (last month)
+├── package-lock.json   # feat: setting up Knex (last month)
+└── package.json
+
 API Endpoints
 
 Authentication
